@@ -1,0 +1,48 @@
+{
+  "version": "1.0",
+  "policies": [
+    {
+      "category": "Jailbreak",
+      "surface": "direct",
+      "threshold": 0.45,
+      "action": "BLOCK"
+    },
+    {
+      "category": "Jailbreak",
+      "surface": "indirect",
+      "threshold": 0.42,
+      "action": "BLOCK"
+    },
+    {
+      "category": "Prompt Injection",
+      "surface": "direct",
+      "threshold": 0.45,
+      "action": "BLOCK"
+    },
+    {
+      "category": "Prompt Injection",
+      "surface": "indirect",
+      "threshold": 0.42,
+      "action": "BLOCK"
+    },
+    {
+      "category": "PII Leakage",
+      "surface": "*",
+      "threshold": 0.70,
+      "action": "BLOCK"
+    },
+    {
+      "category": "Malicious Tools",
+      "surface": "*",
+      "threshold": 0.65,
+      "action": "REVIEW"
+    },
+    {
+      "category": "Hate/Toxicity",
+      "surface": "*",
+      "threshold": 0.70,
+      "action": "BLOCK"
+    }
+  ],
+  "default_action": "ALLOW"
+}
