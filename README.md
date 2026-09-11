@@ -1,6 +1,9 @@
 # CipherGuard: Policy-Aware Safety Router for LLM Applications
 
 [![Tests](https://img.shields.io/badge/tests-13%20passed-brightgreen.svg)]()
+[![Streamlit App](https://img.shields.io/badge/🛡️%20Live%20UI-Streamlit-FF4B4B?logo=streamlit)](https://ciphergaurd.streamlit.app/)
+[![API Docs](https://img.shields.io/badge/⚡%20REST%20API-Render-46E3B7?logo=render)](https://ciphergaurd.onrender.com/docs)
+[![Deployed](https://img.shields.io/badge/status-live-brightgreen.svg)]()
 [![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)]()
 
@@ -11,6 +14,16 @@ CipherGuard is a policy-aware, auditable safety router positioned upstream of co
 3. **Removal-Based Contrastive Token Attribution**: An approximate beam-search engine that identifies the minimal token subset whose removal flips a `BLOCK` decision to `PASS`, providing actionable audit rationale and automated content sanitization.
 
 ---
+
+## 🌐 Live Deployment
+
+| Service | URL |
+|---|---|
+| 🛡️ **Interactive UI** (Streamlit) | [ciphergaurd.streamlit.app](https://ciphergaurd.streamlit.app/) |
+| ⚡ **REST API** (FastAPI on Render) | [ciphergaurd.onrender.com](https://ciphergaurd.onrender.com/) |
+| 📖 **API Swagger Docs** | [ciphergaurd.onrender.com/docs](https://ciphergaurd.onrender.com/docs) |
+
+
 
 ## Repository Structure
 
