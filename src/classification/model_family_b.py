@@ -37,7 +37,10 @@ class ModelFamilyB(BaseClassifier):
         """
         for cat, y in labels.items():
             if cat in self.pipelines:
-                self.pipelines[cat].fit(texts, y)
+                if len(set(y)) >= 2:
+                    self.pipelines[cat].fit(texts, y)
+                else:
+                    print(f"[CipherGuard] ModelFamilyB: Category '{cat}' has only 1 class in training data. Keeping fallback heuristic.")
         self.is_fitted = True
 
     def score(self, text: str, surface: Optional[str] = None) -> Dict[str, float]:
@@ -72,11 +75,18 @@ class ModelFamilyB(BaseClassifier):
             results = [{} for _ in texts]
             for cat in self.categories:
                 pipe = self.pipelines.get(cat)
+                fitted = False
                 if pipe is not None:
-                    probs = pipe.predict_proba(texts)[:, 1]
-                    for idx, p in enumerate(probs):
-                        results[idx][cat] = round(float(p), 4)
-                else:
+                    try:
+                        from sklearn.utils.validation import check_is_fitted
+                        check_is_fitted(pipe)
+                        probs = pipe.predict_proba(texts)[:, 1]
+                        for idx, p in enumerate(probs):
+                            results[idx][cat] = round(float(p), 4)
+                        fitted = True
+                    except Exception:
+                        fitted = False
+                if not fitted:
                     for idx, t in enumerate(texts):
                         results[idx][cat] = round(self._heuristic_fallback(t, cat), 4)
             return results
@@ -114,3 +124,38 @@ class ModelFamilyB(BaseClassifier):
                 return 0.80
             return 0.02
         return 0.04
+
+    def save(self, directory: str) -> None:
+        """
+        Serializes all fitted MLP pipelines to disk using joblib.
+        Creates one file per category: {directory}/family_b_{category}.pkl
+        """
+        import os
+        import joblib
+        os.makedirs(directory, exist_ok=True)
+        for cat, pipe in self.pipelines.items():
+            safe_name = cat.replace("/", "_").replace(" ", "_")
+            path = os.path.join(directory, f"family_b_{safe_name}.pkl")
+            joblib.dump(pipe, path)
+        print(f"[CipherGuard] ModelFamilyB saved {len(self.pipelines)} pipelines to '{directory}'.")
+
+    @classmethod
+    def load(cls, directory: str, categories: list = None) -> "ModelFamilyB":
+        """
+        Restores fitted MLP pipelines from disk.
+        Returns a ModelFamilyB instance with is_fitted=True.
+        """
+        import os
+        import joblib
+        instance = cls(categories=categories)
+        loaded = 0
+        for cat in instance.categories:
+            safe_name = cat.replace("/", "_").replace(" ", "_")
+            path = os.path.join(directory, f"family_b_{safe_name}.pkl")
+            if os.path.exists(path):
+                instance.pipelines[cat] = joblib.load(path)
+                loaded += 1
+        if loaded > 0:
+            instance.is_fitted = True
+        print(f"[CipherGuard] ModelFamilyB loaded {loaded}/{len(instance.categories)} pipelines from '{directory}'.")
+        return instance

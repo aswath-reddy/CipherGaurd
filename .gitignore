@@ -47,3 +47,4 @@ Thumbs.db
 *.pt
 *.bin
 *.safetensors
+*.pkl
