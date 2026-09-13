@@ -111,7 +111,7 @@ def run_finetuning(mode: str = "lora"):
     class CipherGuardDataset(Dataset):
         def __init__(self, texts, labels):
             self.encodings = tokenizer(
-                texts, padding=True, truncation=True, max_length=512
+                texts, padding=True, truncation=True, max_length=256
             )
             self.labels = labels
 
@@ -160,17 +160,19 @@ def run_finetuning(mode: str = "lora"):
     training_args = TrainingArguments(
         output_dir=OUTPUT_DIR,
         num_train_epochs=5,
-        per_device_train_batch_size=16 if device == "cuda" else 8,
-        per_device_eval_batch_size=32 if device == "cuda" else 8,
+        per_device_train_batch_size=8 if device == "cuda" else 4,
+        gradient_accumulation_steps=2 if device == "cuda" else 1,
+        per_device_eval_batch_size=8,
         learning_rate=2e-5,
         weight_decay=0.01,
-        warmup_ratio=0.1,
+        warmup_steps=20,
         eval_strategy="epoch",
         save_strategy="epoch",
+        save_total_limit=1,
         load_best_model_at_end=True,
         metric_for_best_model="f1_macro",
         greater_is_better=True,
-        logging_steps=50,
+        logging_steps=25,
         fp16=(device == "cuda"),   # Mixed precision on GPU only
         dataloader_num_workers=0,
         report_to="none",

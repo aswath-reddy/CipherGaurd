@@ -1,0 +1,16 @@
+{
+  "id2label": {
+    "0": "Jailbreak",
+    "1": "Prompt Injection",
+    "2": "PII Leakage",
+    "3": "Malicious Tools",
+    "4": "Hate/Toxicity"
+  },
+  "label2id": {
+    "Jailbreak": 0,
+    "Prompt Injection": 1,
+    "PII Leakage": 2,
+    "Malicious Tools": 3,
+    "Hate/Toxicity": 4
+  }
+}

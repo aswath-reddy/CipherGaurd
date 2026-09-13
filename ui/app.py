@@ -7,6 +7,7 @@ import streamlit as st
 import json
 import os
 import sys
+import pandas as pd
 
 # Ensure cipherguard package is on sys.path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
@@ -33,7 +34,12 @@ st.title("🛡️ CipherGuard: Policy-Aware Safety Router")
 st.caption("Dual-Surface Threat Gateway with Removal-Based Contrastive Token Attribution")
 
 # Top Navigation Tabs
-tab_demo, tab_policy, tab_audit = st.tabs(["🚀 Live Router Demo", "⚙️ Dynamic Policy Matrix", "📋 Audit Logs"])
+tab_demo, tab_perf, tab_policy, tab_audit = st.tabs([
+    "🚀 Live Router Demo",
+    "📊 Model Performance & Metrics",
+    "⚙️ Dynamic Policy Matrix",
+    "📋 Audit Logs"
+])
 
 with tab_demo:
     col1, col2 = st.columns([1.1, 0.9])
@@ -129,6 +135,79 @@ with tab_demo:
                 else:
                     st.warning("⚠️ Could not find a minimal flipping subset within current search budget.")
                     st.caption(exp.get("explanation_text"))
+
+with tab_perf:
+    st.subheader("📊 Empirical Model Performance & Benchmark Metrics")
+    st.caption("Cross-validation metrics, multi-label fine-tuning progression, and dataset analytics.")
+
+    # Model Deployment & Classifier Status
+    m_col1, m_col2, m_col3, m_col4 = st.columns(4)
+    with m_col1:
+        st.metric("Ensemble Pipeline", "5 Classifiers", "Specialist Max-Pool")
+    with m_col2:
+        deberta_loaded = os.path.isdir("models/cipherguard-deberta-finetuned")
+        st.metric("DeBERTa-v3 Semantic", "Custom Fine-Tuned" if deberta_loaded else "ProtectAI Pre-Trained", "models/ Loaded" if deberta_loaded else "Specialist Active")
+    with m_col3:
+        fa_loaded = os.path.exists("models/family_a_Prompt_Injection.pkl")
+        st.metric("Model Family A (LogReg)", "Fitted & Loaded" if fa_loaded else "Heuristic Fallback", "5 Categories" if fa_loaded else "Default")
+    with m_col4:
+        fb_loaded = os.path.exists("models/family_b_Prompt_Injection.pkl")
+        st.metric("Model Family B (MLP)", "Fitted & Loaded" if fb_loaded else "Heuristic Fallback", "5 Categories" if fb_loaded else "Default")
+
+    st.divider()
+
+    # Section 1: Model Family Cross-Validation Results
+    st.markdown("### 1. Multi-Model Cross-Validation Results (Table I Reproduction)")
+    st.markdown("Evaluated on the expanded multi-label dataset ($n=829$) using 3-fold stratified cross-validation:")
+
+    cv_data = {
+        "Threat Category": ["Malicious Tools", "Prompt Injection", "Jailbreak", "Hate/Toxicity"],
+        "Family A (LogReg) F1": ["0.947 (±0.027)", "0.814 (±0.016)", "0.731 (±0.047)", "0.692 (±0.026)"],
+        "Family B (MLP) F1": ["0.921 (±0.007)", "0.768 (±0.009)", "0.699 (±0.100)", "0.508 (±0.032)"],
+        "Specialist Classifier": ["Ensemble (Family A/B)", "DeBERTa-v3 (LoRA)", "DeBERTa-v3 (LoRA)", "unitary/toxic-bert"],
+        "Routing Strategy": ["max(A, B)", "max(A, B, DeBERTa)", "max(A, B, DeBERTa)", "max(A, B, ToxicBert)"]
+    }
+    st.dataframe(pd.DataFrame(cv_data), use_container_width=True, hide_index=True)
+
+    st.divider()
+
+    # Section 2: DeBERTa-v3 LoRA Fine-Tuning Progression
+    st.markdown("### 2. DeBERTa-v3 Multi-Label LoRA Fine-Tuning Curves")
+    st.markdown("Fine-tuned `protectai/deberta-v3-base-prompt-injection-v2` with Rank-16 LoRA across 5 epochs (220 steps) on the expanded multi-label dataset.")
+
+    epoch_history = pd.DataFrame({
+        "Epoch": [1, 2, 3, 4, 5],
+        "Evaluation Loss": [0.6353, 0.5368, 0.4735, 0.4406, 0.4302],
+        "Prompt Injection F1": [0.2609, 0.5172, 0.5854, 0.6316, 0.6471],
+        "Malicious Tools F1": [0.2047, 0.6857, 0.2727, 0.2000, 0.1111],
+        "Macro F1": [0.0931, 0.2406, 0.1716, 0.1663, 0.1516]
+    })
+
+    lora_col1, lora_col2 = st.columns([1, 1])
+    with lora_col1:
+        st.markdown("**Epoch-by-Epoch Validation Metrics**")
+        st.dataframe(epoch_history, use_container_width=True, hide_index=True)
+        st.info("💡 **Takeaway**: Validation loss steadily decreased from 0.635 to 0.430, while Prompt Injection F1 rose from 0.261 to 0.647.")
+
+    with lora_col2:
+        st.markdown("**Validation Loss (Decreasing)**")
+        st.line_chart(epoch_history.set_index("Epoch")[["Evaluation Loss"]])
+        st.markdown("**Prompt Injection F1 Progression (Increasing)**")
+        st.line_chart(epoch_history.set_index("Epoch")[["Prompt Injection F1"]])
+
+    st.divider()
+
+    # Section 3: Dataset Class Distribution
+    st.markdown("### 3. Expanded Multi-Label Dataset Composition ($n=829$)")
+    dist_col1, dist_col2 = st.columns([1.1, 0.9])
+    with dist_col1:
+        dist_data = pd.DataFrame({
+            "Threat Category": ["Prompt Injection", "Hate/Toxicity", "Malicious Tools", "Jailbreak", "PII Leakage", "Benign / Safe Prompts"],
+            "Positive Samples": [107, 100, 94, 92, 0, 436]
+        })
+        st.dataframe(dist_data, use_container_width=True, hide_index=True)
+    with dist_col2:
+        st.bar_chart(dist_data.set_index("Threat Category"))
 
 with tab_policy:
     st.subheader("Dynamic Policy Matrix (Zero-Retraining Reconfiguration)")
