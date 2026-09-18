@@ -1,0 +1,261 @@
+{
+  "timestamp": "2026-09-18T09:53:50.207931",
+  "dataset": {
+    "note": "Full retrain on each subset would be needed for exact numbers. Numbers below are composition facts + expected impact, not measured val F1.",
+    "configurations": {
+      "pilot_only": {
+        "n": 85,
+        "sources": [
+          "pilot"
+        ],
+        "n_jailbreak_pos": 30,
+        "n_pi_pos": 20,
+        "note": "Phase 1 pilot dataset only. Extremely small; high variance expected."
+      },
+      "public_hf_only": {
+        "n": 550,
+        "sources": [
+          "deepset/prompt-injections",
+          "tweet_eval/hate"
+        ],
+        "n_pi_pos": 350,
+        "n_hate_pos": 100,
+        "n_jailbreak_pos": 0,
+        "note": "No Jailbreak or PII labels in public HF datasets. JB/PII classifiers would fail."
+      },
+      "public_hf_plus_pii_indirect": {
+        "n": 761,
+        "sources": [
+          "deepset/prompt-injections",
+          "tweet_eval/hate",
+          "cipherguard_pii_synthetic",
+          "cipherguard_indirect_synthetic",
+          "cipherguard_indirect_jailbreak_synthetic"
+        ],
+        "note": "Adds PII and indirect surface coverage. Still no malicious tools."
+      },
+      "full_dataset": {
+        "n": 971,
+        "sources": [
+          "all"
+        ],
+        "n_jailbreak": 140,
+        "n_pi": 160,
+        "n_pii": 68,
+        "n_mt": 76,
+        "n_hate": 100,
+        "val_macro_f1_strategy_D": 0.788,
+        "note": "Full Phase 2.5 dataset. This is the trained model."
+      }
+    }
+  },
+  "model_and_fusion": {
+    "A_LogReg": {
+      "macro_F1_val": 0.7762,
+      "per_category": {
+        "Jailbreak": 0.6829,
+        "Prompt Injection": 0.8085,
+        "PII Leakage": 0.8421,
+        "Malicious Tools": 0.7826,
+        "Hate/Toxicity": 0.7647
+      }
+    },
+    "B_MLP": {
+      "macro_F1_val": 0.622,
+      "per_category": {
+        "Jailbreak": 0.6061,
+        "Prompt Injection": 0.6667,
+        "PII Leakage": 0.625,
+        "Malicious Tools": 0.6667,
+        "Hate/Toxicity": 0.5455
+      }
+    },
+    "C_Specialist": {
+      "macro_F1_val": 0.4348,
+      "per_category": {
+        "Jailbreak": 0.6531,
+        "Prompt Injection": 0.6923,
+        "PII Leakage": 0.1188,
+        "Malicious Tools": 0.0,
+        "Hate/Toxicity": 0.7097
+      }
+    },
+    "D_LR_MLP_MAX": {
+      "macro_F1_val": 0.7877,
+      "per_category": {
+        "Jailbreak": 0.6829,
+        "Prompt Injection": 0.8085,
+        "PII Leakage": 0.9,
+        "Malicious Tools": 0.7826,
+        "Hate/Toxicity": 0.7647
+      }
+    },
+    "E_LR_MLP_Spec_MAX": {
+      "macro_F1_val": 0.6325,
+      "per_category": {
+        "Jailbreak": 0.6909,
+        "Prompt Injection": 0.7636,
+        "PII Leakage": 0.1887,
+        "Malicious Tools": 0.7826,
+        "Hate/Toxicity": 0.7368
+      }
+    },
+    "F_WeightedAvg": {
+      "macro_F1_val": 0.7237,
+      "per_category": {
+        "Jailbreak": 0.7368,
+        "Prompt Injection": 0.7826,
+        "PII Leakage": 0.7778,
+        "Malicious Tools": 0.5882,
+        "Hate/Toxicity": 0.7333
+      }
+    },
+    "G_MetaClassifier": {
+      "macro_F1_val": 0.7618,
+      "per_category": {
+        "Jailbreak": 0.64,
+        "Prompt Injection": 0.6923,
+        "PII Leakage": 0.9524,
+        "Malicious Tools": 0.8182,
+        "Hate/Toxicity": 0.7059
+      }
+    }
+  },
+  "policy": {
+    "v1_single_objective": {
+      "macro_F1_test": 0.685,
+      "per_category": {
+        "Jailbreak": {
+          "threshold": 0.35,
+          "Precision": 0.513,
+          "Recall": 0.909,
+          "F1": 0.656
+        },
+        "Prompt Injection": {
+          "threshold": 0.45,
+          "Precision": 0.647,
+          "Recall": 0.88,
+          "F1": 0.746
+        },
+        "PII Leakage": {
+          "threshold": 0.5,
+          "Precision": 0.9,
+          "Recall": 0.818,
+          "F1": 0.857
+        },
+        "Malicious Tools": {
+          "threshold": 0.3,
+          "Precision": 0.48,
+          "Recall": 1.0,
+          "F1": 0.649
+        },
+        "Hate/Toxicity": {
+          "threshold": 0.3,
+          "Precision": 0.359,
+          "Recall": 0.933,
+          "F1": 0.519
+        }
+      }
+    },
+    "v2_dual_objective": {
+      "macro_F1_test": 0.775,
+      "per_category": {
+        "Jailbreak": {
+          "threshold": 0.45,
+          "Precision": 0.76,
+          "Recall": 0.864,
+          "F1": 0.809
+        },
+        "Prompt Injection": {
+          "threshold": 0.45,
+          "Precision": 0.647,
+          "Recall": 0.88,
+          "F1": 0.746
+        },
+        "PII Leakage": {
+          "threshold": 0.45,
+          "Precision": 0.643,
+          "Recall": 0.818,
+          "F1": 0.72
+        },
+        "Malicious Tools": {
+          "threshold": 0.45,
+          "Precision": 0.818,
+          "Recall": 0.75,
+          "F1": 0.783
+        },
+        "Hate/Toxicity": {
+          "threshold": 0.55,
+          "Precision": 0.917,
+          "Recall": 0.733,
+          "F1": 0.815
+        }
+      }
+    }
+  },
+  "attribution": {
+    "beam3_cap4": {
+      "beam_width": 3,
+      "removal_cap": 4,
+      "flip_rate": 0.8,
+      "avg_latency_ms": 65.5,
+      "avg_tokens_removed": 2.75
+    },
+    "beam3_cap6": {
+      "beam_width": 3,
+      "removal_cap": 6,
+      "flip_rate": 0.8,
+      "avg_latency_ms": 83.5,
+      "avg_tokens_removed": 2.75
+    },
+    "beam3_cap8": {
+      "beam_width": 3,
+      "removal_cap": 8,
+      "flip_rate": 0.8,
+      "avg_latency_ms": 98.1,
+      "avg_tokens_removed": 2.75
+    },
+    "beam5_cap4": {
+      "beam_width": 5,
+      "removal_cap": 4,
+      "flip_rate": 0.8,
+      "avg_latency_ms": 91.8,
+      "avg_tokens_removed": 2.75
+    },
+    "beam5_cap6": {
+      "beam_width": 5,
+      "removal_cap": 6,
+      "flip_rate": 0.8,
+      "avg_latency_ms": 119.2,
+      "avg_tokens_removed": 2.75
+    },
+    "beam5_cap8": {
+      "beam_width": 5,
+      "removal_cap": 8,
+      "flip_rate": 0.8,
+      "avg_latency_ms": 140.3,
+      "avg_tokens_removed": 2.75
+    },
+    "beam10_cap4": {
+      "beam_width": 10,
+      "removal_cap": 4,
+      "flip_rate": 0.8,
+      "avg_latency_ms": 155.7,
+      "avg_tokens_removed": 2.75
+    },
+    "beam10_cap6": {
+      "beam_width": 10,
+      "removal_cap": 6,
+      "flip_rate": 0.8,
+      "avg_latency_ms": 201.6,
+      "avg_tokens_removed": 2.75
+    },
+    "beam10_cap8": {
+      "beam_width": 10,
+      "removal_cap": 8,
+      "flip_rate": 0.8,
+      "avg_latency_ms": 259.4,
+      "avg_tokens_removed": 2.75
+    }
+  }
+}

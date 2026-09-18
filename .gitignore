@@ -45,6 +45,8 @@ Thumbs.db
 
 # Compiled model artifacts
 *.pt
+*.pth
 *.bin
 *.safetensors
 *.pkl
+**/checkpoint-*/

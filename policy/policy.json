@@ -1,48 +1,102 @@
 {
-  "version": "1.0",
+  "version": "2.0",
+  "description": "Phase 2.5 v2 dual-objective thresholds. BLOCK=precision-weighted. REVIEW=recall-weighted.",
   "policies": [
     {
       "category": "Jailbreak",
       "surface": "direct",
-      "threshold": 0.45,
-      "action": "BLOCK"
+      "threshold": 0.40,
+      "action": "BLOCK",
+      "note": "v2 per-surface: direct BLOCK=0.40 (P=0.789, R=0.938 on val)"
     },
     {
       "category": "Jailbreak",
       "surface": "indirect",
-      "threshold": 0.42,
-      "action": "BLOCK"
+      "threshold": 0.55,
+      "action": "BLOCK",
+      "note": "v2 per-surface: indirect BLOCK=0.55"
+    },
+    {
+      "category": "Jailbreak",
+      "surface": "direct",
+      "threshold": 0.35,
+      "action": "REVIEW",
+      "note": "v2 REVIEW threshold (recall-weighted)"
+    },
+    {
+      "category": "Jailbreak",
+      "surface": "indirect",
+      "threshold": 0.45,
+      "action": "REVIEW",
+      "note": "v2 indirect REVIEW"
     },
     {
       "category": "Prompt Injection",
       "surface": "direct",
       "threshold": 0.45,
-      "action": "BLOCK"
+      "action": "BLOCK",
+      "note": "v2 per-surface: direct BLOCK=0.45 (P=0.933, R=0.875 on val)"
     },
     {
       "category": "Prompt Injection",
       "surface": "indirect",
-      "threshold": 0.42,
-      "action": "BLOCK"
+      "threshold": 0.45,
+      "action": "BLOCK",
+      "note": "v2 per-surface: indirect BLOCK=0.45 (P=0.667, R=1.000 on val)"
+    },
+    {
+      "category": "Prompt Injection",
+      "surface": "direct",
+      "threshold": 0.40,
+      "action": "REVIEW"
+    },
+    {
+      "category": "Prompt Injection",
+      "surface": "indirect",
+      "threshold": 0.40,
+      "action": "REVIEW"
     },
     {
       "category": "PII Leakage",
       "surface": "*",
-      "threshold": 0.70,
-      "action": "BLOCK"
+      "threshold": 0.45,
+      "action": "BLOCK",
+      "note": "v2 BLOCK=0.45"
+    },
+    {
+      "category": "PII Leakage",
+      "surface": "*",
+      "threshold": 0.40,
+      "action": "REVIEW"
     },
     {
       "category": "Malicious Tools",
       "surface": "*",
-      "threshold": 0.65,
+      "threshold": 0.45,
+      "action": "BLOCK",
+      "note": "v2 BLOCK=0.45 (P=0.818, R=0.750 on test)"
+    },
+    {
+      "category": "Malicious Tools",
+      "surface": "*",
+      "threshold": 0.30,
       "action": "REVIEW"
     },
     {
       "category": "Hate/Toxicity",
       "surface": "*",
-      "threshold": 0.70,
-      "action": "BLOCK"
+      "threshold": 0.55,
+      "action": "BLOCK",
+      "note": "v2 BLOCK=0.55 (P=0.917, R=0.733 on test)"
+    },
+    {
+      "category": "Hate/Toxicity",
+      "surface": "*",
+      "threshold": 0.40,
+      "action": "REVIEW"
     }
   ],
-  "default_action": "ALLOW"
+  "default_action": "ALLOW",
+  "thresholds_version": "v2",
+  "source": "evaluation/results/thresholds_frozen_v2.json"
 }

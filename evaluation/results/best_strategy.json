@@ -1,0 +1,14 @@
+{
+  "best_strategy": "D_LR_MLP_MAX",
+  "macro_F1_val": 0.7877,
+  "selection_basis": "validation macro-F1 (OOF estimate for G)",
+  "comparison": {
+    "A_LogReg": 0.7762,
+    "B_MLP": 0.622,
+    "C_Specialist": 0.4348,
+    "D_LR_MLP_MAX": 0.7877,
+    "E_LR_MLP_Spec_MAX": 0.6325,
+    "F_WeightedAvg": 0.7237,
+    "G_MetaClassifier": 0.7322
+  }
+}

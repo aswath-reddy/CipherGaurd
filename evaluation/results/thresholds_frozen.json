@@ -1,0 +1,72 @@
+{
+  "frozen": true,
+  "data_split": "val",
+  "strategy": "D_LR_MLP_MAX",
+  "objective_formula": "0.7*FNR + 0.3*FPR",
+  "note": "Thresholds frozen before test-set inspection. Do NOT modify after running phase2_final_test_eval.py.",
+  "thresholds": {
+    "Jailbreak": {
+      "block": 0.35,
+      "review": 0.21,
+      "objective_val": 0.0344,
+      "FNR_val": 0.0,
+      "FPR_val": 0.1148,
+      "per_surface": {
+        "direct": {
+          "block": 0.35,
+          "review": 0.21,
+          "objective_val": 0.0167,
+          "FNR_val": 0.0,
+          "FPR_val": 0.0556,
+          "n_samples": 124
+        }
+      }
+    },
+    "Prompt Injection": {
+      "block": 0.45,
+      "review": 0.27,
+      "objective_val": 0.0371,
+      "FNR_val": 0.0417,
+      "FPR_val": 0.0263,
+      "per_surface": {
+        "direct": {
+          "block": 0.35,
+          "review": 0.21,
+          "objective_val": 0.0417,
+          "FNR_val": 0.0,
+          "FPR_val": 0.1389,
+          "n_samples": 124
+        },
+        "indirect": {
+          "block": 0.4,
+          "review": 0.24,
+          "objective_val": 0.0,
+          "FNR_val": 0.0,
+          "FPR_val": 0.0,
+          "n_samples": 14
+        }
+      }
+    },
+    "PII Leakage": {
+      "block": 0.5,
+      "review": 0.3,
+      "objective_val": 0.0047,
+      "FNR_val": 0.0,
+      "FPR_val": 0.0156
+    },
+    "Malicious Tools": {
+      "block": 0.3,
+      "review": 0.18,
+      "objective_val": 0.0449,
+      "FNR_val": 0.0,
+      "FPR_val": 0.1496
+    },
+    "Hate/Toxicity": {
+      "block": 0.3,
+      "review": 0.18,
+      "objective_val": 0.0537,
+      "FNR_val": 0.0,
+      "FPR_val": 0.1789
+    }
+  }
+}

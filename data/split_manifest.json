@@ -1,0 +1,121 @@
+{
+  "random_seed": 42,
+  "stratification_method": "per-stratum proportional fallback (seed=42)",
+  "split_ratios": {
+    "train": 0.7,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "total_samples": 971,
+  "splits": {
+    "train": {
+      "n": 678,
+      "path": "data/train.json",
+      "stats": {
+        "n": 678,
+        "Jailbreak": {
+          "positive": 97,
+          "negative": 581,
+          "prevalence": 0.1431
+        },
+        "Prompt Injection": {
+          "positive": 111,
+          "negative": 567,
+          "prevalence": 0.1637
+        },
+        "PII Leakage": {
+          "positive": 47,
+          "negative": 631,
+          "prevalence": 0.0693
+        },
+        "Malicious Tools": {
+          "positive": 53,
+          "negative": 625,
+          "prevalence": 0.0782
+        },
+        "Hate/Toxicity": {
+          "positive": 70,
+          "negative": 608,
+          "prevalence": 0.1032
+        },
+        "surface": {
+          "direct": 579,
+          "indirect": 99
+        }
+      }
+    },
+    "val": {
+      "n": 145,
+      "path": "data/val.json",
+      "stats": {
+        "n": 145,
+        "Jailbreak": {
+          "positive": 21,
+          "negative": 124,
+          "prevalence": 0.1448
+        },
+        "Prompt Injection": {
+          "positive": 24,
+          "negative": 121,
+          "prevalence": 0.1655
+        },
+        "PII Leakage": {
+          "positive": 10,
+          "negative": 135,
+          "prevalence": 0.069
+        },
+        "Malicious Tools": {
+          "positive": 11,
+          "negative": 134,
+          "prevalence": 0.0759
+        },
+        "Hate/Toxicity": {
+          "positive": 15,
+          "negative": 130,
+          "prevalence": 0.1034
+        },
+        "surface": {
+          "direct": 124,
+          "indirect": 21
+        }
+      }
+    },
+    "test": {
+      "n": 148,
+      "path": "data/test.json",
+      "stats": {
+        "n": 148,
+        "Jailbreak": {
+          "positive": 22,
+          "negative": 126,
+          "prevalence": 0.1486
+        },
+        "Prompt Injection": {
+          "positive": 25,
+          "negative": 123,
+          "prevalence": 0.1689
+        },
+        "PII Leakage": {
+          "positive": 11,
+          "negative": 137,
+          "prevalence": 0.0743
+        },
+        "Malicious Tools": {
+          "positive": 12,
+          "negative": 136,
+          "prevalence": 0.0811
+        },
+        "Hate/Toxicity": {
+          "positive": 15,
+          "negative": 133,
+          "prevalence": 0.1014
+        },
+        "surface": {
+          "direct": 126,
+          "indirect": 22
+        }
+      }
+    }
+  },
+  "overlap_verified": true
+}

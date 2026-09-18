@@ -1,0 +1,559 @@
+{
+  "data_split": "val",
+  "threshold": 0.5,
+  "models": {
+    "A_LogReg": {
+      "categories": {
+        "Jailbreak": {
+          "n_pos": 21,
+          "n_neg": 124,
+          "TP": 14,
+          "FP": 6,
+          "TN": 118,
+          "FN": 7,
+          "Precision": 0.7,
+          "Recall": 0.6667,
+          "F1": 0.6829,
+          "Accuracy": 0.9103,
+          "ROC_AUC": 0.9597,
+          "PR_AUC": 0.7824
+        },
+        "Prompt Injection": {
+          "n_pos": 24,
+          "n_neg": 121,
+          "TP": 19,
+          "FP": 4,
+          "TN": 117,
+          "FN": 5,
+          "Precision": 0.8261,
+          "Recall": 0.7917,
+          "F1": 0.8085,
+          "Accuracy": 0.9379,
+          "ROC_AUC": 0.9652,
+          "PR_AUC": 0.806
+        },
+        "PII Leakage": {
+          "n_pos": 10,
+          "n_neg": 135,
+          "TP": 8,
+          "FP": 1,
+          "TN": 134,
+          "FN": 2,
+          "Precision": 0.8889,
+          "Recall": 0.8,
+          "F1": 0.8421,
+          "Accuracy": 0.9793,
+          "ROC_AUC": 0.9933,
+          "PR_AUC": 0.9042
+        },
+        "Malicious Tools": {
+          "n_pos": 11,
+          "n_neg": 134,
+          "TP": 9,
+          "FP": 3,
+          "TN": 131,
+          "FN": 2,
+          "Precision": 0.75,
+          "Recall": 0.8182,
+          "F1": 0.7826,
+          "Accuracy": 0.9655,
+          "ROC_AUC": 0.9858,
+          "PR_AUC": 0.8805
+        },
+        "Hate/Toxicity": {
+          "n_pos": 15,
+          "n_neg": 130,
+          "TP": 13,
+          "FP": 6,
+          "TN": 124,
+          "FN": 2,
+          "Precision": 0.6842,
+          "Recall": 0.8667,
+          "F1": 0.7647,
+          "Accuracy": 0.9448,
+          "ROC_AUC": 0.9656,
+          "PR_AUC": 0.8587
+        }
+      }
+    },
+    "B_MLP": {
+      "categories": {
+        "Jailbreak": {
+          "n_pos": 21,
+          "n_neg": 124,
+          "TP": 10,
+          "FP": 2,
+          "TN": 122,
+          "FN": 11,
+          "Precision": 0.8333,
+          "Recall": 0.4762,
+          "F1": 0.6061,
+          "Accuracy": 0.9103,
+          "ROC_AUC": 0.9528,
+          "PR_AUC": 0.7917
+        },
+        "Prompt Injection": {
+          "n_pos": 24,
+          "n_neg": 121,
+          "TP": 13,
+          "FP": 2,
+          "TN": 119,
+          "FN": 11,
+          "Precision": 0.8667,
+          "Recall": 0.5417,
+          "F1": 0.6667,
+          "Accuracy": 0.9103,
+          "ROC_AUC": 0.97,
+          "PR_AUC": 0.8556
+        },
+        "PII Leakage": {
+          "n_pos": 10,
+          "n_neg": 135,
+          "TP": 5,
+          "FP": 1,
+          "TN": 134,
+          "FN": 5,
+          "Precision": 0.8333,
+          "Recall": 0.5,
+          "F1": 0.625,
+          "Accuracy": 0.9586,
+          "ROC_AUC": 0.9933,
+          "PR_AUC": 0.8906
+        },
+        "Malicious Tools": {
+          "n_pos": 11,
+          "n_neg": 134,
+          "TP": 6,
+          "FP": 1,
+          "TN": 133,
+          "FN": 5,
+          "Precision": 0.8571,
+          "Recall": 0.5455,
+          "F1": 0.6667,
+          "Accuracy": 0.9586,
+          "ROC_AUC": 0.9817,
+          "PR_AUC": 0.8421
+        },
+        "Hate/Toxicity": {
+          "n_pos": 15,
+          "n_neg": 130,
+          "TP": 6,
+          "FP": 1,
+          "TN": 129,
+          "FN": 9,
+          "Precision": 0.8571,
+          "Recall": 0.4,
+          "F1": 0.5455,
+          "Accuracy": 0.931,
+          "ROC_AUC": 0.9151,
+          "PR_AUC": 0.7128
+        }
+      }
+    },
+    "C_DeBERTa": {
+      "categories": {
+        "Jailbreak": {
+          "n_pos": 21,
+          "n_neg": 124,
+          "TP": 16,
+          "FP": 12,
+          "TN": 112,
+          "FN": 5,
+          "Precision": 0.5714,
+          "Recall": 0.7619,
+          "F1": 0.6531,
+          "Accuracy": 0.8828,
+          "ROC_AUC": 0.8642,
+          "PR_AUC": 0.5287
+        },
+        "Prompt Injection": {
+          "n_pos": 24,
+          "n_neg": 121,
+          "TP": 18,
+          "FP": 10,
+          "TN": 111,
+          "FN": 6,
+          "Precision": 0.6429,
+          "Recall": 0.75,
+          "F1": 0.6923,
+          "Accuracy": 0.8897,
+          "ROC_AUC": 0.8795,
+          "PR_AUC": 0.5909
+        },
+        "PII Leakage": {
+          "note": "N/A \u2014 not in model scope"
+        },
+        "Malicious Tools": {
+          "note": "N/A \u2014 not in model scope"
+        },
+        "Hate/Toxicity": {
+          "note": "N/A \u2014 not in model scope"
+        }
+      }
+    },
+    "D_ToxicBERT": {
+      "categories": {
+        "Jailbreak": {
+          "note": "N/A \u2014 not in model scope"
+        },
+        "Prompt Injection": {
+          "note": "N/A \u2014 not in model scope"
+        },
+        "PII Leakage": {
+          "note": "N/A \u2014 not in model scope"
+        },
+        "Malicious Tools": {
+          "note": "N/A \u2014 not in model scope"
+        },
+        "Hate/Toxicity": {
+          "n_pos": 15,
+          "n_neg": 130,
+          "TP": 11,
+          "FP": 5,
+          "TN": 125,
+          "FN": 4,
+          "Precision": 0.6875,
+          "Recall": 0.7333,
+          "F1": 0.7097,
+          "Accuracy": 0.9379,
+          "ROC_AUC": 0.9231,
+          "PR_AUC": 0.7338
+        }
+      }
+    },
+    "E_Presidio": {
+      "categories": {
+        "Jailbreak": {
+          "note": "N/A \u2014 not in model scope"
+        },
+        "Prompt Injection": {
+          "note": "N/A \u2014 not in model scope"
+        },
+        "PII Leakage": {
+          "n_pos": 10,
+          "n_neg": 135,
+          "TP": 6,
+          "FP": 85,
+          "TN": 50,
+          "FN": 4,
+          "Precision": 0.0659,
+          "Recall": 0.6,
+          "F1": 0.1188,
+          "Accuracy": 0.3862,
+          "ROC_AUC": 0.4804,
+          "PR_AUC": 0.1578
+        },
+        "Malicious Tools": {
+          "note": "N/A \u2014 not in model scope"
+        },
+        "Hate/Toxicity": {
+          "note": "N/A \u2014 not in model scope"
+        }
+      }
+    },
+    "F_Ensemble": {
+      "categories": {
+        "Jailbreak": {
+          "n_pos": 21,
+          "n_neg": 124,
+          "TP": 19,
+          "FP": 15,
+          "TN": 109,
+          "FN": 2,
+          "Precision": 0.5588,
+          "Recall": 0.9048,
+          "F1": 0.6909,
+          "Accuracy": 0.8828,
+          "ROC_AUC": 0.9347,
+          "PR_AUC": 0.5891
+        },
+        "Prompt Injection": {
+          "n_pos": 24,
+          "n_neg": 121,
+          "TP": 21,
+          "FP": 10,
+          "TN": 111,
+          "FN": 3,
+          "Precision": 0.6774,
+          "Recall": 0.875,
+          "F1": 0.7636,
+          "Accuracy": 0.9103,
+          "ROC_AUC": 0.9389,
+          "PR_AUC": 0.6529
+        },
+        "PII Leakage": {
+          "n_pos": 10,
+          "n_neg": 135,
+          "TP": 10,
+          "FP": 86,
+          "TN": 49,
+          "FN": 0,
+          "Precision": 0.1042,
+          "Recall": 1.0,
+          "F1": 0.1887,
+          "Accuracy": 0.4069,
+          "ROC_AUC": 0.6952,
+          "PR_AUC": 0.3676
+        },
+        "Malicious Tools": {
+          "n_pos": 11,
+          "n_neg": 134,
+          "TP": 9,
+          "FP": 3,
+          "TN": 131,
+          "FN": 2,
+          "Precision": 0.75,
+          "Recall": 0.8182,
+          "F1": 0.7826,
+          "Accuracy": 0.9655,
+          "ROC_AUC": 0.9844,
+          "PR_AUC": 0.8524
+        },
+        "Hate/Toxicity": {
+          "n_pos": 15,
+          "n_neg": 130,
+          "TP": 14,
+          "FP": 9,
+          "TN": 121,
+          "FN": 1,
+          "Precision": 0.6087,
+          "Recall": 0.9333,
+          "F1": 0.7368,
+          "Accuracy": 0.931,
+          "ROC_AUC": 0.959,
+          "PR_AUC": 0.8038
+        }
+      }
+    }
+  },
+  "surface_breakdown": {
+    "Jailbreak": {
+      "A_LogReg_direct": {
+        "n_pos": 16,
+        "n_neg": 108,
+        "TP": 10,
+        "FP": 1,
+        "TN": 107,
+        "FN": 6,
+        "Precision": 0.9091,
+        "Recall": 0.625,
+        "F1": 0.7407,
+        "Accuracy": 0.9435,
+        "ROC_AUC": 0.9821,
+        "PR_AUC": 0.8665
+      },
+      "B_MLP_direct": {
+        "n_pos": 16,
+        "n_neg": 108,
+        "TP": 7,
+        "FP": 0,
+        "TN": 108,
+        "FN": 9,
+        "Precision": 1.0,
+        "Recall": 0.4375,
+        "F1": 0.6087,
+        "Accuracy": 0.9274,
+        "ROC_AUC": 0.967,
+        "PR_AUC": 0.8348
+      },
+      "C_DeBERTa_direct": {
+        "n_pos": 16,
+        "n_neg": 108,
+        "TP": 11,
+        "FP": 3,
+        "TN": 105,
+        "FN": 5,
+        "Precision": 0.7857,
+        "Recall": 0.6875,
+        "F1": 0.7333,
+        "Accuracy": 0.9355,
+        "ROC_AUC": 0.8782,
+        "PR_AUC": 0.6931
+      },
+      "F_Ensemble_direct": {
+        "n_pos": 16,
+        "n_neg": 108,
+        "TP": 14,
+        "FP": 4,
+        "TN": 104,
+        "FN": 2,
+        "Precision": 0.7778,
+        "Recall": 0.875,
+        "F1": 0.8235,
+        "Accuracy": 0.9516,
+        "ROC_AUC": 0.9763,
+        "PR_AUC": 0.8151
+      },
+      "A_LogReg_indirect": {
+        "n_pos": 5,
+        "n_neg": 16,
+        "TP": 4,
+        "FP": 5,
+        "TN": 11,
+        "FN": 1,
+        "Precision": 0.4444,
+        "Recall": 0.8,
+        "F1": 0.5714,
+        "Accuracy": 0.7143,
+        "ROC_AUC": 0.925,
+        "PR_AUC": 0.86
+      },
+      "B_MLP_indirect": {
+        "n_pos": 5,
+        "n_neg": 16,
+        "TP": 3,
+        "FP": 2,
+        "TN": 14,
+        "FN": 2,
+        "Precision": 0.6,
+        "Recall": 0.6,
+        "F1": 0.6,
+        "Accuracy": 0.8095,
+        "ROC_AUC": 0.9,
+        "PR_AUC": 0.7644
+      },
+      "C_DeBERTa_indirect": {
+        "n_pos": 5,
+        "n_neg": 16,
+        "TP": 5,
+        "FP": 9,
+        "TN": 7,
+        "FN": 0,
+        "Precision": 0.3571,
+        "Recall": 1.0,
+        "F1": 0.5263,
+        "Accuracy": 0.5714,
+        "ROC_AUC": 0.8125,
+        "PR_AUC": 0.4545
+      },
+      "F_Ensemble_indirect": {
+        "n_pos": 5,
+        "n_neg": 16,
+        "TP": 5,
+        "FP": 11,
+        "TN": 5,
+        "FN": 0,
+        "Precision": 0.3125,
+        "Recall": 1.0,
+        "F1": 0.4762,
+        "Accuracy": 0.4762,
+        "ROC_AUC": 0.8125,
+        "PR_AUC": 0.4545
+      }
+    },
+    "Prompt Injection": {
+      "A_LogReg_direct": {
+        "n_pos": 16,
+        "n_neg": 108,
+        "TP": 13,
+        "FP": 0,
+        "TN": 108,
+        "FN": 3,
+        "Precision": 1.0,
+        "Recall": 0.8125,
+        "F1": 0.8966,
+        "Accuracy": 0.9758,
+        "ROC_AUC": 0.9797,
+        "PR_AUC": 0.9468
+      },
+      "B_MLP_direct": {
+        "n_pos": 16,
+        "n_neg": 108,
+        "TP": 9,
+        "FP": 0,
+        "TN": 108,
+        "FN": 7,
+        "Precision": 1.0,
+        "Recall": 0.5625,
+        "F1": 0.72,
+        "Accuracy": 0.9435,
+        "ROC_AUC": 0.9774,
+        "PR_AUC": 0.9003
+      },
+      "C_DeBERTa_direct": {
+        "n_pos": 16,
+        "n_neg": 108,
+        "TP": 11,
+        "FP": 3,
+        "TN": 105,
+        "FN": 5,
+        "Precision": 0.7857,
+        "Recall": 0.6875,
+        "F1": 0.7333,
+        "Accuracy": 0.9355,
+        "ROC_AUC": 0.8782,
+        "PR_AUC": 0.6931
+      },
+      "F_Ensemble_direct": {
+        "n_pos": 16,
+        "n_neg": 108,
+        "TP": 13,
+        "FP": 3,
+        "TN": 105,
+        "FN": 3,
+        "Precision": 0.8125,
+        "Recall": 0.8125,
+        "F1": 0.8125,
+        "Accuracy": 0.9516,
+        "ROC_AUC": 0.9664,
+        "PR_AUC": 0.8086
+      },
+      "A_LogReg_indirect": {
+        "n_pos": 8,
+        "n_neg": 13,
+        "TP": 6,
+        "FP": 4,
+        "TN": 9,
+        "FN": 2,
+        "Precision": 0.6,
+        "Recall": 0.75,
+        "F1": 0.6667,
+        "Accuracy": 0.7143,
+        "ROC_AUC": 0.8173,
+        "PR_AUC": 0.6813
+      },
+      "B_MLP_indirect": {
+        "n_pos": 8,
+        "n_neg": 13,
+        "TP": 4,
+        "FP": 2,
+        "TN": 11,
+        "FN": 4,
+        "Precision": 0.6667,
+        "Recall": 0.5,
+        "F1": 0.5714,
+        "Accuracy": 0.7143,
+        "ROC_AUC": 0.8942,
+        "PR_AUC": 0.8295
+      },
+      "C_DeBERTa_indirect": {
+        "n_pos": 8,
+        "n_neg": 13,
+        "TP": 7,
+        "FP": 7,
+        "TN": 6,
+        "FN": 1,
+        "Precision": 0.5,
+        "Recall": 0.875,
+        "F1": 0.6364,
+        "Accuracy": 0.619,
+        "ROC_AUC": 0.7212,
+        "PR_AUC": 0.5389
+      },
+      "F_Ensemble_indirect": {
+        "n_pos": 8,
+        "n_neg": 13,
+        "TP": 8,
+        "FP": 7,
+        "TN": 6,
+        "FN": 0,
+        "Precision": 0.5333,
+        "Recall": 1.0,
+        "F1": 0.6957,
+        "Accuracy": 0.6667,
+        "ROC_AUC": 0.7308,
+        "PR_AUC": 0.5431
+      }
+    }
+  }
+}

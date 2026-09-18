@@ -1,0 +1,272 @@
+{
+  "data_split": "val",
+  "strategies": {
+    "A_LogReg": {
+      "Jailbreak": {
+        "F1": 0.6829,
+        "Precision": 0.7,
+        "Recall": 0.6667,
+        "Accuracy": 0.9103
+      },
+      "Prompt Injection": {
+        "F1": 0.8085,
+        "Precision": 0.8261,
+        "Recall": 0.7917,
+        "Accuracy": 0.9379
+      },
+      "PII Leakage": {
+        "F1": 0.8421,
+        "Precision": 0.8889,
+        "Recall": 0.8,
+        "Accuracy": 0.9793
+      },
+      "Malicious Tools": {
+        "F1": 0.7826,
+        "Precision": 0.75,
+        "Recall": 0.8182,
+        "Accuracy": 0.9655
+      },
+      "Hate/Toxicity": {
+        "F1": 0.7647,
+        "Precision": 0.6842,
+        "Recall": 0.8667,
+        "Accuracy": 0.9448
+      },
+      "macro_F1": 0.7762
+    },
+    "B_MLP": {
+      "Jailbreak": {
+        "F1": 0.6061,
+        "Precision": 0.8333,
+        "Recall": 0.4762,
+        "Accuracy": 0.9103
+      },
+      "Prompt Injection": {
+        "F1": 0.6667,
+        "Precision": 0.8667,
+        "Recall": 0.5417,
+        "Accuracy": 0.9103
+      },
+      "PII Leakage": {
+        "F1": 0.625,
+        "Precision": 0.8333,
+        "Recall": 0.5,
+        "Accuracy": 0.9586
+      },
+      "Malicious Tools": {
+        "F1": 0.6667,
+        "Precision": 0.8571,
+        "Recall": 0.5455,
+        "Accuracy": 0.9586
+      },
+      "Hate/Toxicity": {
+        "F1": 0.5455,
+        "Precision": 0.8571,
+        "Recall": 0.4,
+        "Accuracy": 0.931
+      },
+      "macro_F1": 0.622
+    },
+    "C_Specialist": {
+      "Jailbreak": {
+        "F1": 0.6531,
+        "Precision": 0.5714,
+        "Recall": 0.7619,
+        "Accuracy": 0.8828
+      },
+      "Prompt Injection": {
+        "F1": 0.6923,
+        "Precision": 0.6429,
+        "Recall": 0.75,
+        "Accuracy": 0.8897
+      },
+      "PII Leakage": {
+        "F1": 0.1188,
+        "Precision": 0.0659,
+        "Recall": 0.6,
+        "Accuracy": 0.3862
+      },
+      "Malicious Tools": {
+        "F1": 0.0,
+        "Precision": 0.0,
+        "Recall": 0.0,
+        "Accuracy": 0.9241
+      },
+      "Hate/Toxicity": {
+        "F1": 0.7097,
+        "Precision": 0.6875,
+        "Recall": 0.7333,
+        "Accuracy": 0.9379
+      },
+      "macro_F1": 0.4348
+    },
+    "D_LR_MLP_MAX": {
+      "Jailbreak": {
+        "F1": 0.6829,
+        "Precision": 0.7,
+        "Recall": 0.6667,
+        "Accuracy": 0.9103
+      },
+      "Prompt Injection": {
+        "F1": 0.8085,
+        "Precision": 0.8261,
+        "Recall": 0.7917,
+        "Accuracy": 0.9379
+      },
+      "PII Leakage": {
+        "F1": 0.9,
+        "Precision": 0.9,
+        "Recall": 0.9,
+        "Accuracy": 0.9862
+      },
+      "Malicious Tools": {
+        "F1": 0.7826,
+        "Precision": 0.75,
+        "Recall": 0.8182,
+        "Accuracy": 0.9655
+      },
+      "Hate/Toxicity": {
+        "F1": 0.7647,
+        "Precision": 0.6842,
+        "Recall": 0.8667,
+        "Accuracy": 0.9448
+      },
+      "macro_F1": 0.7877
+    },
+    "E_LR_MLP_Spec_MAX": {
+      "Jailbreak": {
+        "F1": 0.6909,
+        "Precision": 0.5588,
+        "Recall": 0.9048,
+        "Accuracy": 0.8828
+      },
+      "Prompt Injection": {
+        "F1": 0.7636,
+        "Precision": 0.6774,
+        "Recall": 0.875,
+        "Accuracy": 0.9103
+      },
+      "PII Leakage": {
+        "F1": 0.1887,
+        "Precision": 0.1042,
+        "Recall": 1.0,
+        "Accuracy": 0.4069
+      },
+      "Malicious Tools": {
+        "F1": 0.7826,
+        "Precision": 0.75,
+        "Recall": 0.8182,
+        "Accuracy": 0.9655
+      },
+      "Hate/Toxicity": {
+        "F1": 0.7368,
+        "Precision": 0.6087,
+        "Recall": 0.9333,
+        "Accuracy": 0.931
+      },
+      "macro_F1": 0.6325
+    },
+    "F_WeightedAvg": {
+      "Jailbreak": {
+        "F1": 0.7368,
+        "Precision": 0.8235,
+        "Recall": 0.6667,
+        "Accuracy": 0.931
+      },
+      "Prompt Injection": {
+        "F1": 0.7826,
+        "Precision": 0.8182,
+        "Recall": 0.75,
+        "Accuracy": 0.931
+      },
+      "PII Leakage": {
+        "F1": 0.7778,
+        "Precision": 0.875,
+        "Recall": 0.7,
+        "Accuracy": 0.9724
+      },
+      "Malicious Tools": {
+        "F1": 0.5882,
+        "Precision": 0.8333,
+        "Recall": 0.4545,
+        "Accuracy": 0.9517
+      },
+      "Hate/Toxicity": {
+        "F1": 0.7333,
+        "Precision": 0.7333,
+        "Recall": 0.7333,
+        "Accuracy": 0.9448
+      },
+      "macro_F1": 0.7237,
+      "learned_weights": {
+        "Jailbreak": {
+          "w_a": 0.6,
+          "w_b": 0.2,
+          "w_spec": 0.2
+        },
+        "Prompt Injection": {
+          "w_a": 0.6,
+          "w_b": 0.2,
+          "w_spec": 0.2
+        },
+        "PII Leakage": {
+          "w_a": 0.6,
+          "w_b": 0.2,
+          "w_spec": 0.2
+        },
+        "Malicious Tools": {
+          "w_a": 0.5,
+          "w_b": 0.3,
+          "w_spec": 0.2
+        },
+        "Hate/Toxicity": {
+          "w_a": 0.2,
+          "w_b": 0.2,
+          "w_spec": 0.6
+        }
+      }
+    },
+    "G_MetaClassifier": {
+      "Jailbreak": {
+        "F1": 0.64,
+        "Precision": 0.5517,
+        "Recall": 0.7619,
+        "Accuracy": 0.8759
+      },
+      "Prompt Injection": {
+        "F1": 0.6923,
+        "Precision": 0.6429,
+        "Recall": 0.75,
+        "Accuracy": 0.8897
+      },
+      "PII Leakage": {
+        "F1": 0.9524,
+        "Precision": 0.9091,
+        "Recall": 1.0,
+        "Accuracy": 0.9931
+      },
+      "Malicious Tools": {
+        "F1": 0.8182,
+        "Precision": 0.8182,
+        "Recall": 0.8182,
+        "Accuracy": 0.9724
+      },
+      "Hate/Toxicity": {
+        "F1": 0.7059,
+        "Precision": 0.6316,
+        "Recall": 0.8,
+        "Accuracy": 0.931
+      },
+      "macro_F1": 0.7618,
+      "macro_F1_CV": 0.7322,
+      "cv_f1s": {
+        "Jailbreak": 0.64,
+        "Prompt Injection": 0.6923,
+        "PII Leakage": 0.9,
+        "Malicious Tools": 0.7619,
+        "Hate/Toxicity": 0.6667
+      }
+    }
+  },
+  "best_strategy": "D_LR_MLP_MAX"
+}

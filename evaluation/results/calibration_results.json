@@ -1,0 +1,102 @@
+{
+  "timestamp": "2026-09-18T09:47:31.625758",
+  "strategy": "D_LR_MLP_MAX",
+  "n_bins": 10,
+  "categories": {
+    "Jailbreak": {
+      "val": {
+        "n_pos": 21,
+        "brier_raw": 0.10089,
+        "ece_raw": 0.21154,
+        "brier_platt": 0.06426,
+        "ece_platt": 0.06317,
+        "brier_isotonic": 0.04333,
+        "ece_isotonic": 0.0
+      },
+      "test_secondary": {
+        "brier_raw": 0.08502,
+        "ece_raw": 0.21726,
+        "brier_platt": 0.03292,
+        "ece_platt": 0.03301,
+        "brier_isotonic": 0.04458,
+        "ece_isotonic": 0.04388
+      }
+    },
+    "Prompt Injection": {
+      "val": {
+        "n_pos": 24,
+        "brier_raw": 0.10371,
+        "ece_raw": 0.24418,
+        "brier_platt": 0.04938,
+        "ece_platt": 0.06175,
+        "brier_isotonic": 0.0335,
+        "ece_isotonic": 0.0
+      },
+      "test_secondary": {
+        "brier_raw": 0.09824,
+        "ece_raw": 0.23472,
+        "brier_platt": 0.04373,
+        "ece_platt": 0.03569,
+        "brier_isotonic": 0.06397,
+        "ece_isotonic": 0.06187
+      }
+    },
+    "PII Leakage": {
+      "val": {
+        "n_pos": 10,
+        "brier_raw": 0.05935,
+        "ece_raw": 0.2114,
+        "brier_platt": 0.01543,
+        "ece_platt": 0.02473,
+        "brier_isotonic": 0.01051,
+        "ece_isotonic": 0.0
+      },
+      "test_secondary": {
+        "brier_raw": 0.05349,
+        "ece_raw": 0.18485,
+        "brier_platt": 0.01956,
+        "ece_platt": 0.03087,
+        "brier_isotonic": 0.02323,
+        "ece_isotonic": 0.03575
+      }
+    },
+    "Malicious Tools": {
+      "val": {
+        "n_pos": 11,
+        "brier_raw": 0.06061,
+        "ece_raw": 0.18908,
+        "brier_platt": 0.02646,
+        "ece_platt": 0.02831,
+        "brier_isotonic": 0.0205,
+        "ece_isotonic": 0.0
+      },
+      "test_secondary": {
+        "brier_raw": 0.05755,
+        "ece_raw": 0.19098,
+        "brier_platt": 0.02529,
+        "ece_platt": 0.01859,
+        "brier_isotonic": 0.02422,
+        "ece_isotonic": 0.02322
+      }
+    },
+    "Hate/Toxicity": {
+      "val": {
+        "n_pos": 15,
+        "brier_raw": 0.08125,
+        "ece_raw": 0.21205,
+        "brier_platt": 0.03669,
+        "ece_platt": 0.02895,
+        "brier_isotonic": 0.02834,
+        "ece_isotonic": 0.0
+      },
+      "test_secondary": {
+        "brier_raw": 0.07397,
+        "ece_raw": 0.21915,
+        "brier_platt": 0.02712,
+        "ece_platt": 0.02519,
+        "brier_isotonic": 0.03004,
+        "ece_isotonic": 0.01829
+      }
+    }
+  }
+}

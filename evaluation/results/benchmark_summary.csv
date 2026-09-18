@@ -1,0 +1,31 @@
+model,category,split,Precision,Recall,F1,Accuracy,ROC_AUC,PR_AUC,TP,FP,TN,FN
+A_LogReg,Jailbreak,val,0.7,0.6667,0.6829,0.9103,0.9597,0.7824,14,6,118,7
+A_LogReg,Prompt Injection,val,0.8261,0.7917,0.8085,0.9379,0.9652,0.806,19,4,117,5
+A_LogReg,PII Leakage,val,0.8889,0.8,0.8421,0.9793,0.9933,0.9042,8,1,134,2
+A_LogReg,Malicious Tools,val,0.75,0.8182,0.7826,0.9655,0.9858,0.8805,9,3,131,2
+A_LogReg,Hate/Toxicity,val,0.6842,0.8667,0.7647,0.9448,0.9656,0.8587,13,6,124,2
+B_MLP,Jailbreak,val,0.8333,0.4762,0.6061,0.9103,0.9528,0.7917,10,2,122,11
+B_MLP,Prompt Injection,val,0.8667,0.5417,0.6667,0.9103,0.97,0.8556,13,2,119,11
+B_MLP,PII Leakage,val,0.8333,0.5,0.625,0.9586,0.9933,0.8906,5,1,134,5
+B_MLP,Malicious Tools,val,0.8571,0.5455,0.6667,0.9586,0.9817,0.8421,6,1,133,5
+B_MLP,Hate/Toxicity,val,0.8571,0.4,0.5455,0.931,0.9151,0.7128,6,1,129,9
+C_DeBERTa,Jailbreak,val,0.5714,0.7619,0.6531,0.8828,0.8642,0.5287,16,12,112,5
+C_DeBERTa,Prompt Injection,val,0.6429,0.75,0.6923,0.8897,0.8795,0.5909,18,10,111,6
+C_DeBERTa,PII Leakage,val,N/A,N/A,N/A,N/A,N/A,N/A,,,,
+C_DeBERTa,Malicious Tools,val,N/A,N/A,N/A,N/A,N/A,N/A,,,,
+C_DeBERTa,Hate/Toxicity,val,N/A,N/A,N/A,N/A,N/A,N/A,,,,
+D_ToxicBERT,Jailbreak,val,N/A,N/A,N/A,N/A,N/A,N/A,,,,
+D_ToxicBERT,Prompt Injection,val,N/A,N/A,N/A,N/A,N/A,N/A,,,,
+D_ToxicBERT,PII Leakage,val,N/A,N/A,N/A,N/A,N/A,N/A,,,,
+D_ToxicBERT,Malicious Tools,val,N/A,N/A,N/A,N/A,N/A,N/A,,,,
+D_ToxicBERT,Hate/Toxicity,val,0.6875,0.7333,0.7097,0.9379,0.9231,0.7338,11,5,125,4
+E_Presidio,Jailbreak,val,N/A,N/A,N/A,N/A,N/A,N/A,,,,
+E_Presidio,Prompt Injection,val,N/A,N/A,N/A,N/A,N/A,N/A,,,,
+E_Presidio,PII Leakage,val,0.0659,0.6,0.1188,0.3862,0.4804,0.1578,6,85,50,4
+E_Presidio,Malicious Tools,val,N/A,N/A,N/A,N/A,N/A,N/A,,,,
+E_Presidio,Hate/Toxicity,val,N/A,N/A,N/A,N/A,N/A,N/A,,,,
+F_Ensemble,Jailbreak,val,0.5588,0.9048,0.6909,0.8828,0.9347,0.5891,19,15,109,2
+F_Ensemble,Prompt Injection,val,0.6774,0.875,0.7636,0.9103,0.9389,0.6529,21,10,111,3
+F_Ensemble,PII Leakage,val,0.1042,1.0,0.1887,0.4069,0.6952,0.3676,10,86,49,0
+F_Ensemble,Malicious Tools,val,0.75,0.8182,0.7826,0.9655,0.9844,0.8524,9,3,131,2
+F_Ensemble,Hate/Toxicity,val,0.6087,0.9333,0.7368,0.931,0.959,0.8038,14,9,121,1

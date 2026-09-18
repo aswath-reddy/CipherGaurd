@@ -1,0 +1,31 @@
+{
+  "timestamp": "2026-09-18T09:55:17.079808",
+  "benchmarks": {
+    "jailbreakbench": {
+      "status": "NOT_AVAILABLE",
+      "install": "pip install jailbreakbench",
+      "note": "NOT AVAILABLE -- jailbreakbench not installed.\n  Install: pip install jailbreakbench\n  What would be measured:\n    - JBB provides 100 standard jailbreak behaviors with 10 attack methods each\n    - CipherGuard would be run on each behavior prompt (surface=direct, cat=Jailbreak)\n    - Metrics: detection rate (recall), false positive rate on benign behaviors\n    - Comparison: CipherGuard vs JBB's built-in judge scoring\n    - Respects JBB's eval-only split (no training overlap)"
+    },
+    "wildguardtest": {
+      "status": "NOT_AVAILABLE",
+      "install": "pip install wildguard",
+      "note": "NOT AVAILABLE -- wildguard package not installed.\n  Install: pip install wildguard  (or follow repo README: allenai/wildguard)\n  What would be measured:\n    - WildGuardTest has 1725 test prompts (harmful/benign/refusal)\n    - CipherGuard would be evaluated on the harmful vs benign split\n    - Metrics: precision, recall, F1 on multi-category labels\n    - Key comparison: WildGuard model accuracy vs CipherGuard on same inputs"
+    },
+    "harmbench": {
+      "status": "NOT_AVAILABLE",
+      "install": "pip install datasets",
+      "note": "NOT AVAILABLE -- HuggingFace datasets not installed.\n  Install: pip install datasets\n  Dataset: walledai/HarmBench on HuggingFace Hub\n  What would be measured:\n    - HarmBench provides 400 harmful behaviors across 7 functional categories\n    - CipherGuard would be run on the standard_behaviors test split\n    - Metrics: Attack Success Rate detected (recall), per-category breakdown\n    - Note: HarmBench evaluates attack success, not just prompt risk;\n      CipherGuard evaluates prompt risk at gateway -- complementary, not identical"
+    },
+    "injecagent": {
+      "status": "NOT_AVAILABLE",
+      "install": "pip install datasets",
+      "priority": "HIGH",
+      "note": "NOT AVAILABLE -- HuggingFace datasets not installed.\n  Install: pip install datasets\n  Dataset: abcdabcd987/InjecAgent on HuggingFace Hub (or local clone)\n  What would be measured:\n    - InjecAgent provides 1054 test cases for indirect injection in agent tasks\n    - Content is injected into tool outputs (web search, email, calendar, etc.)\n    - CipherGuard would run on the injected_prompt field with surface=indirect\n    - Category: Prompt Injection (task-hijacking)\n    - This is the most relevant external benchmark for CipherGuard's indirect surface\n    - Metrics: detection rate, FP rate on non-injected tool outputs\n    - PRIORITY: install this benchmark first for indirect injection validation"
+    },
+    "agentdojo": {
+      "status": "NOT_AVAILABLE",
+      "install": "pip install agentdojo",
+      "note": "NOT AVAILABLE -- agentdojo not installed.\n  Install: pip install agentdojo\n  What would be measured:\n    - AgentDojo provides 97 injection tasks across 5 agent environments\n    - It measures end-to-end attack success vs task utility\n    - CipherGuard would be inserted as a gateway before tool-output processing\n    - Requires running a full agent loop -- not just prompt classification\n    - Integration complexity: HIGH (not a drop-in classifier benchmark)\n    - Suitable for future integration testing, not Phase 3 evaluation"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "timestamp": "2026-09-18T09:51:34.413639",
+  "n_test": 148,
+  "thresholds": {
+    "Jailbreak": 0.45,
+    "Prompt Injection": 0.45,
+    "PII Leakage": 0.45,
+    "Malicious Tools": 0.45,
+    "Hate/Toxicity": 0.55
+  },
+  "matrices": {
+    "Jailbreak": {
+      "TP": 19,
+      "FP": 6,
+      "FN": 3,
+      "TN": 120,
+      "Precision": 0.76,
+      "Recall": 0.8636,
+      "F1": 0.8085
+    },
+    "Prompt Injection": {
+      "TP": 22,
+      "FP": 12,
+      "FN": 3,
+      "TN": 111,
+      "Precision": 0.6471,
+      "Recall": 0.88,
+      "F1": 0.7458
+    },
+    "PII Leakage": {
+      "TP": 9,
+      "FP": 5,
+      "FN": 2,
+      "TN": 132,
+      "Precision": 0.6429,
+      "Recall": 0.8182,
+      "F1": 0.72
+    },
+    "Malicious Tools": {
+      "TP": 9,
+      "FP": 2,
+      "FN": 3,
+      "TN": 134,
+      "Precision": 0.8182,
+      "Recall": 0.75,
+      "F1": 0.7826
+    },
+    "Hate/Toxicity": {
+      "TP": 11,
+      "FP": 1,
+      "FN": 4,
+      "TN": 132,
+      "Precision": 0.9167,
+      "Recall": 0.7333,
+      "F1": 0.8148
+    }
+  }
+}

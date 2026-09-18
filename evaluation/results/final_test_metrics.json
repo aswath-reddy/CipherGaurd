@@ -1,0 +1,139 @@
+{
+  "data_split": "test",
+  "strategy": "D_LR_MLP_MAX",
+  "frozen_threshold_source": "val",
+  "categories": {
+    "Jailbreak": {
+      "n_pos": 17,
+      "n_neg": 123,
+      "threshold": 0.35,
+      "TP": 17,
+      "FP": 21,
+      "TN": 102,
+      "FN": 0,
+      "Precision": 0.4474,
+      "Recall": 1.0,
+      "F1": 0.6182,
+      "Accuracy": 0.85,
+      "ROC_AUC": 0.9758,
+      "PR_AUC": 0.8835
+    },
+    "Prompt Injection": {
+      "n_pos": 25,
+      "n_neg": 115,
+      "threshold": 0.45,
+      "TP": 23,
+      "FP": 6,
+      "TN": 109,
+      "FN": 2,
+      "Precision": 0.7931,
+      "Recall": 0.92,
+      "F1": 0.8519,
+      "Accuracy": 0.9429,
+      "ROC_AUC": 0.9889,
+      "PR_AUC": 0.9618
+    },
+    "PII Leakage": {
+      "n_pos": 11,
+      "n_neg": 129,
+      "threshold": 0.5,
+      "TP": 9,
+      "FP": 2,
+      "TN": 127,
+      "FN": 2,
+      "Precision": 0.8182,
+      "Recall": 0.8182,
+      "F1": 0.8182,
+      "Accuracy": 0.9714,
+      "ROC_AUC": 0.9901,
+      "PR_AUC": 0.79
+    },
+    "Malicious Tools": {
+      "n_pos": 12,
+      "n_neg": 128,
+      "threshold": 0.3,
+      "TP": 12,
+      "FP": 15,
+      "TN": 113,
+      "FN": 0,
+      "Precision": 0.4444,
+      "Recall": 1.0,
+      "F1": 0.6154,
+      "Accuracy": 0.8929,
+      "ROC_AUC": 0.9889,
+      "PR_AUC": 0.8549
+    },
+    "Hate/Toxicity": {
+      "n_pos": 15,
+      "n_neg": 125,
+      "threshold": 0.3,
+      "TP": 14,
+      "FP": 22,
+      "TN": 103,
+      "FN": 1,
+      "Precision": 0.3889,
+      "Recall": 0.9333,
+      "F1": 0.549,
+      "Accuracy": 0.8357,
+      "ROC_AUC": 0.9547,
+      "PR_AUC": 0.7464
+    }
+  },
+  "macro_F1_test": 0.6905,
+  "surface_breakdown": {
+    "Jailbreak": {
+      "direct": {
+        "n_pos": 17,
+        "n_neg": 109,
+        "threshold": 0.35,
+        "TP": 17,
+        "FP": 17,
+        "TN": 92,
+        "FN": 0,
+        "Precision": 0.5,
+        "Recall": 1.0,
+        "F1": 0.6667,
+        "Accuracy": 0.8651,
+        "ROC_AUC": 0.983,
+        "PR_AUC": 0.9215
+      },
+      "indirect": {
+        "note": "no positives",
+        "n_pos": 0,
+        "n_neg": 14
+      }
+    },
+    "Prompt Injection": {
+      "direct": {
+        "n_pos": 17,
+        "n_neg": 109,
+        "threshold": 0.35,
+        "TP": 17,
+        "FP": 19,
+        "TN": 90,
+        "FN": 0,
+        "Precision": 0.4722,
+        "Recall": 1.0,
+        "F1": 0.6415,
+        "Accuracy": 0.8492,
+        "ROC_AUC": 0.9849,
+        "PR_AUC": 0.938
+      },
+      "indirect": {
+        "n_pos": 8,
+        "n_neg": 6,
+        "threshold": 0.4,
+        "TP": 8,
+        "FP": 0,
+        "TN": 6,
+        "FN": 0,
+        "Precision": 1.0,
+        "Recall": 1.0,
+        "F1": 1.0,
+        "Accuracy": 1.0,
+        "ROC_AUC": 1.0,
+        "PR_AUC": 1.0
+      }
+    }
+  }
+}

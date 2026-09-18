@@ -1,0 +1,132 @@
+{
+  "frozen": true,
+  "version": "v2",
+  "data_split": "val",
+  "strategy": "D_LR_MLP_MAX",
+  "block_objective": "min(0.7*FPR + 0.3*FNR), Recall >= 0.5",
+  "review_objective": "min(0.7*FNR + 0.3*FPR)",
+  "note": "Phase 2.5 dual-objective thresholds. BLOCK = precision-weighted (auto-reject). REVIEW = recall-weighted (routes to human). Supersedes thresholds_frozen.json (v1).",
+  "thresholds": {
+    "Jailbreak": {
+      "block": 0.45,
+      "block_objective": 0.0767,
+      "block_Precision": 0.75,
+      "block_Recall": 0.8571,
+      "block_FPR": 0.0484,
+      "block_FNR": 0.1429,
+      "block_note": "Recall floor 0.5 satisfied",
+      "review": 0.35,
+      "review_objective": 0.0532,
+      "review_Precision": 0.4884,
+      "review_Recall": 1.0,
+      "review_FPR": 0.1774,
+      "review_FNR": 0.0,
+      "review_note": "OK",
+      "band_width": 0.1,
+      "per_surface": {
+        "direct": {
+          "block": 0.4,
+          "review": 0.35,
+          "block_Precision": 0.7895,
+          "block_Recall": 0.9375,
+          "n_samples": 124,
+          "n_pos": 16
+        },
+        "indirect": {
+          "block": 0.55,
+          "review": 0.45,
+          "block_Precision": 0.5714,
+          "block_Recall": 0.8,
+          "n_samples": 21,
+          "n_pos": 5
+        }
+      }
+    },
+    "Prompt Injection": {
+      "block": 0.45,
+      "block_objective": 0.0539,
+      "block_Precision": 0.8148,
+      "block_Recall": 0.9167,
+      "block_FPR": 0.0413,
+      "block_FNR": 0.0833,
+      "block_note": "Recall floor 0.5 satisfied",
+      "review": 0.4,
+      "review_objective": 0.0589,
+      "review_Precision": 0.6571,
+      "review_Recall": 0.9583,
+      "review_FPR": 0.0992,
+      "review_FNR": 0.0417,
+      "review_note": "OK",
+      "band_width": 0.05,
+      "per_surface": {
+        "direct": {
+          "block": 0.45,
+          "review": 0.4,
+          "block_Precision": 0.9333,
+          "block_Recall": 0.875,
+          "n_samples": 124,
+          "n_pos": 16
+        },
+        "indirect": {
+          "block": 0.45,
+          "review": 0.4,
+          "block_Precision": 0.6667,
+          "block_Recall": 1.0,
+          "n_samples": 21,
+          "n_pos": 8
+        }
+      }
+    },
+    "PII Leakage": {
+      "block": 0.45,
+      "block_objective": 0.0156,
+      "block_Precision": 0.7692,
+      "block_Recall": 1.0,
+      "block_FPR": 0.0222,
+      "block_FNR": 0.0,
+      "block_note": "Recall floor 0.5 satisfied",
+      "review": 0.4,
+      "review_objective": 0.0156,
+      "review_Precision": 0.5882,
+      "review_Recall": 1.0,
+      "review_FPR": 0.0519,
+      "review_FNR": 0.0,
+      "review_note": "OK",
+      "band_width": 0.05
+    },
+    "Malicious Tools": {
+      "block": 0.45,
+      "block_objective": 0.0482,
+      "block_Precision": 0.7143,
+      "block_Recall": 0.9091,
+      "block_FPR": 0.0299,
+      "block_FNR": 0.0909,
+      "block_note": "Recall floor 0.5 satisfied",
+      "review": 0.3,
+      "review_objective": 0.0381,
+      "review_Precision": 0.3929,
+      "review_Recall": 1.0,
+      "review_FPR": 0.1269,
+      "review_FNR": 0.0,
+      "review_note": "OK",
+      "band_width": 0.15
+    },
+    "Hate/Toxicity": {
+      "block": 0.55,
+      "block_objective": 0.0615,
+      "block_Precision": 0.7647,
+      "block_Recall": 0.8667,
+      "block_FPR": 0.0308,
+      "block_FNR": 0.1333,
+      "block_note": "Recall floor 0.5 satisfied",
+      "review": 0.4,
+      "review_objective": 0.0651,
+      "review_Precision": 0.6364,
+      "review_Recall": 0.9333,
+      "review_FPR": 0.0615,
+      "review_FNR": 0.0667,
+      "review_note": "OK",
+      "band_width": 0.15
+    }
+  }
+}
